@@ -1,117 +1,397 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kakoba Paul — Développeur Full Stack</title>
+  <meta name="description" content="CV de Kakoba Paul, développeur Full Stack à Lubumbashi (RDC) : développement web, UI/UX design et support informatique.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2f57;
+      --navy-deep: #0a2140;
+      --blue: #2f80d1;
+      --blue-soft: #e9f0f8;
+      --ink: #1b2a41;
+      --muted: #4d5d75;
+      --line: #c9d5e4;
+      --paper: #f7f9fc;
+      --on-navy: #eaf1fa;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      background: #dfe6f0;
+      line-height: 1.55;
+    }
+    h1, h2, h3, h4, p, ul { margin: 0; }
+    ul { padding: 0; list-style: none; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+
+    /* ---------- En-tête du site ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+      gap: .75rem 1.5rem; padding: 1rem 2rem;
+      background: linear-gradient(90deg, var(--navy) 0%, var(--navy-deep) 100%);
+      color: var(--on-navy);
+      box-shadow: 0 2px 12px rgba(10, 33, 64, .25);
+    }
+    .site-header .brand { font-size: 1.25rem; font-weight: 800; letter-spacing: .01em; }
+    .site-header nav { display: flex; gap: .5rem; }
+    .site-header nav a {
+      color: var(--on-navy); text-decoration: none; font-weight: 600; font-size: .95rem;
+      padding: .45rem .9rem; border-radius: 6px; border-bottom: 2px solid transparent;
+      transition: background-color .2s, border-color .2s;
+    }
+    .site-header nav a:hover,
+    .site-header nav a[aria-current="page"] { background: rgba(255, 255, 255, .14); border-bottom-color: var(--blue); }
+    .site-header nav a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+    @media (max-width: 520px) {
+      .site-header { padding: .9rem 1rem; justify-content: center; text-align: center; }
+      .site-header .brand { width: 100%; font-size: 1.1rem; }
+    }
+
+    .cv {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--paper);
+      box-shadow: 0 10px 40px rgba(10, 33, 64, .18);
+    }
+
+    /* ---------- Colonne gauche ---------- */
+    .side {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+      color: var(--on-navy);
+      padding: 2.5rem 1.75rem;
+    }
+    .photo {
+      width: 180px; height: 180px;
+      margin: 0 auto 2rem;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      overflow: hidden;
+      background: var(--blue);
+      display: grid; place-items: center;
+      font-size: 3rem; font-weight: 800; color: #fff;
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .side section + section { margin-top: 1.9rem; }
+    .side h2 {
+      font-size: 1.1rem; font-weight: 700; letter-spacing: .04em;
+      padding-bottom: .5rem; margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, .35);
+    }
+    .side h3 {
+      display: inline-block;
+      font-size: .9rem; font-weight: 600;
+      background: rgba(255, 255, 255, .14);
+      padding: .15rem .7rem; border-radius: 4px;
+      margin: 1rem 0 .4rem;
+    }
+    .side h3:first-of-type { margin-top: 0; }
+    .side li { font-size: .92rem; padding-left: 1rem; position: relative; }
+    .side li::before { content: ""; position: absolute; left: 0; top: .7em; width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
+
+    .contact li { padding-left: 0; margin-bottom: .75rem; word-break: break-word; }
+    .contact li::before { display: none; }
+    .contact a { text-decoration: underline; text-underline-offset: 3px; }
+
+    .lang { display: flex; align-items: center; justify-content: space-between; gap: .6rem; margin-bottom: .7rem; padding-left: 0 !important; }
+    .lang::before { display: none; }
+    .lang .bar { flex: 1; height: 8px; border-radius: 99px; background: rgba(255, 255, 255, .2); overflow: hidden; }
+    .lang .bar span { display: block; height: 100%; background: var(--blue); border-radius: 99px; }
+    .lang small { font-size: .8rem; min-width: 72px; text-align: right; }
+
+    /* ---------- Colonne droite ---------- */
+    .main { padding: 2.5rem 2.5rem 3rem; }
+    .head h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); font-weight: 800; color: var(--navy); line-height: 1.05; letter-spacing: -.01em; }
+    .head .role { font-size: 1.25rem; font-weight: 600; letter-spacing: .22em; color: var(--navy); margin-top: .5rem; }
+    .head .sub { color: var(--muted); margin-top: .3rem; }
+
+    .block { margin-top: 2.2rem; }
+    .block > h2 {
+      font-size: 1.15rem; font-weight: 800; letter-spacing: .03em; color: var(--navy);
+      background: var(--blue-soft);
+      border-left: 5px solid var(--navy);
+      padding: .55rem 1rem; border-radius: 0 8px 8px 0;
+      margin-bottom: 1.1rem;
+    }
+    .about { font-size: .97rem; color: var(--muted); background: var(--blue-soft); padding: 1rem 1.2rem; border-radius: 10px; }
+
+    /* Timeline */
+    .timeline { position: relative; }
+    .timeline::before { content: ""; position: absolute; left: 94px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+    .job { display: grid; grid-template-columns: 80px 1fr; gap: 0 1.6rem; position: relative; padding-bottom: 1.5rem; }
+    .job:last-child { padding-bottom: 0; }
+    .job::before { content: ""; position: absolute; left: 88px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 3px solid var(--blue); }
+    .job:first-child::before { background: var(--navy); border-color: var(--navy); }
+    .date { font-weight: 700; font-size: .88rem; color: var(--navy); line-height: 1.3; }
+    .job h3 { font-size: 1.02rem; font-weight: 800; color: var(--navy); padding-left: 1.2rem; }
+    .org { font-weight: 600; font-size: .92rem; padding-left: 1.2rem; margin-bottom: .35rem; }
+    .job ul { padding-left: 1.2rem; }
+    .job li { font-size: .88rem; color: var(--muted); padding-left: 1rem; position: relative; margin-bottom: .15rem; }
+    .job li::before { content: "•"; position: absolute; left: 0; color: var(--navy); }
+
+    /* Formations */
+    .edu li { display: grid; grid-template-columns: 56px 1fr; gap: .5rem; font-size: .95rem; padding: .35rem 0; }
+    .edu b.year { color: var(--navy); font-weight: 800; }
+    .edu span strong { color: var(--navy); font-weight: 700; }
+
+    /* Projets */
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .project { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.1rem; }
+    .project h3 { font-size: 1.05rem; font-weight: 800; color: var(--navy); }
+    .project .desc { font-size: .86rem; color: var(--muted); margin: .15rem 0 .6rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .7rem; }
+    .tags li { font-size: .75rem; font-weight: 600; color: var(--navy); background: var(--blue-soft); border: 1px solid var(--line); padding: .1rem .65rem; border-radius: 99px; }
+    .project ul.feat li { font-size: .85rem; color: var(--ink); padding-left: 1rem; position: relative; }
+    .project ul.feat li::before { content: "•"; position: absolute; left: 0; color: var(--navy); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 860px) {
+      .cv { grid-template-columns: 1fr; }
+      .main { padding: 2rem 1.25rem 2.5rem; }
+      .projects { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .timeline::before, .job::before { display: none; }
+      .job { grid-template-columns: 1fr; }
+      .date { margin-bottom: .15rem; }
+      .job h3, .org, .job ul { padding-left: 0; }
+      .head .role { letter-spacing: .12em; font-size: 1.05rem; }
+    }
+
+    /* ---------- Impression (A4) ---------- */
+    @media print {
+      @page { size: A4; margin: 0; }
+      body { background: #fff; }
+      .site-header { display: none; }
+      .cv { box-shadow: none; max-width: none; grid-template-columns: 30% 1fr; }
+      .side, .about, .block > h2, .project, .tags li, .lang .bar, .lang .bar span { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .job, .project { break-inside: avoid; }
+    }
+  </style>
 </head>
-<!-- HEADER -->
- <body>
-    <header>
-        <h2>alexandrins Paul Kakoba Jr</h2>
+<body>
+  <header class="site-header">
+    <p class="brand">Alexandrins Paul Kakoba Jr</p>
+    <nav aria-label="Navigation principale">
+      <a href="cv.html" aria-current="page">CV</a>
+      <a href="projet.html">Projets</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <div class="cv">
 
-        <nav>
-            <a href="cv.html">CV</a>
-            <a href="projet.html">Projets</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-
-
-    <main>
-        <section class="cv">
-            <h1>Curriculum vitae</h1>
-            
-
-            <div class="education">
-                <h2>Éducation</h2>
-                    <ul> 
-                    <li>Formation en Développement Web à Kadea Academy 2025</li>
-                    <li>Certification en Marketing Digital (février-avril 2025) – En ligne</li>
-                    <li>Certification en entrepreneuriat  en Mars 2025– J.AFRICA, Kadea Academy</li>
-                    <li>Certification en IA Générative pour les PMEs en  Avril 2025– Giz, Vodacom, Fondation Mélanie Academy, </li>
-                    <li>Certification Excel pour les PMEs en  Mai 2025 – Kadea Academy, Giz, Vodacom et Fondation Mélanie Academy</li>
-                    <li>Licence en Informatique de Gestion 2019-2024 à ISC/Lubumbashi </li>
-                </ul>
-            </div>
-
-            <div class="experiences">
-                <h2>Expériences</h2>
-                <ul>
-                    <li>Stagiaire à la SNCC – Mise en pratique des connaissances académiques</li>
-                    <li>Stagiaire à la RTNC Katanga</li>
-                    <li>Formateur  en freelence en informatique</li>
-                    <li>Projets en HTML et CSS</li>
-                    <li>Projets en HTML, CSS, Media-queris</li>
-                </ul>
-            </div>
-
-            <div class="competences">
-                <h2>Compétences</h2>
-                <ul>
-                    <li>Langages : HTML, CSS, javascript,</li>
-                    <li>Outils : Git, GitHub, Figma, VS Code, db</li>
-                    <li>Formateur  en freelence en informatique</li>
-                    <li>Soft skills : gestion du temps, leadership, communication, créativité</li>
-                </ul>
-            </div>
-
-            <div class="centres d'intérêt">
-                <h2>Centres d'intérêt</h2>
-                <ul>
-                    <li>Lecture</li>
-                    <li>Apprendre </li>
-                    <li>Football</li>
-                    <li>Marketing digital</li>
-                    <li>Transmission des connaissances</li>
-                    <li>Développement Full-Stack</li>
-                    <li>voyage</li>
-                    <li>Musique</li>
-                    <li>Cinéma</li>
-                    <li>Développement personnel</li>
-                    <li>Broadcast</li>
-                </ul>
-            </div>
-
-            
-
-        </section>
-        
-    </main>
-    <div>
-      <!-- FOOTER -->
-<footer>  
-    <div>
-        <p><strong>Téléphone</strong><br>+243973216322</p>
-    </div>
-
-    <div>
-        <p><strong>Email</strong><br>kakobaalexandrinspaul@gmail.com</p>
-    </div>
-
-    <div>
-        <p><strong>Suivez-moi</strong></p>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Twitter</a>
-        <a href="#">facebook</a>
-        <a href="#">GitHub</a>
-        <div class="social-links">
-            <a href="https://www.facebook.com/tonprofil" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/tonprofil" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/tonprofil" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/tonprofil" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://twitter.com/tonprofil" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://wa.me/243XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <!-- ===== Colonne gauche ===== -->
+    <aside class="side">
+<div class="photo" id="photo">
+  <img src="kakox.png"
+       alt="Portrait de Kakoba Paul"
+       width="180" height="180"
+       onerror="this.onerror=null; this.remove(); document.getElementById('photo').textContent='KP';">
 </div>
+
+      <section class="contact" aria-labelledby="t-contacts">
+        <h2 id="t-contacts">Contacts</h2>
+        <ul>
+          <li><a href="tel:+243973216322">+243 973 216 322</a></li>
+          <li><a href="mailto:kakobaalexandrinspaul@gmail.com">kakobaalexandrinspaul@gmail.com</a></li>
+          <li><a href="https://kakobaalexandrinspaul-glitch.github.io/AlexandrinsPaul-Kakoba-Jr-.site/" target="_blank" rel="noopener noreferrer">Portfolio en ligne</a></li>
+          <li>Lubumbashi, RD Congo</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="t-skills">
+        <h2 id="t-skills">Compétences</h2>
+        <h3>Frontend</h3>
+        <ul>
+          <li>HTML5, CSS3, JavaScript</li>
+          <li>TypeScript</li>
+          <li>Responsive Design</li>
+          <li>Flexbox, Tailwind CSS</li>
+        </ul>
+        <h3>Backend</h3>
+        <ul>
+          <li>Node.js, Express.js, AdonisJS</li>
+          <li>API REST</li>
+          <li>Authentification</li>
+          <li>Gestion des utilisateurs</li>
+        </ul>
+        <h3>Bases de données</h3>
+        <ul>
+          <li>MySQL, PostgreSQL</li>
+        </ul>
+        <h3>UI/UX Design</h3>
+        <ul>
+          <li>Figma</li>
+          <li>Wireframes</li>
+          <li>Maquettes graphiques</li>
+          <li>Parcours utilisateurs</li>
+        </ul>
+        <h3>Systèmes &amp; Support</h3>
+        <ul>
+          <li>Windows, Ubuntu</li>
+          <li>Installation et configuration</li>
+          <li>Maintenance informatique</li>
+          <li>Résolution de problèmes</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="t-lang">
+        <h2 id="t-lang">Langues</h2>
+        <ul>
+          <li class="lang">Français <span class="bar" role="img" aria-label="Niveau courant"><span style="width:92%"></span></span><small>Courant</small></li>
+          <li class="lang">Anglais <span class="bar" role="img" aria-label="Niveau intermédiaire"><span style="width:55%"></span></span><small>Intermédiaire</small></li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="t-qual">
+        <h2 id="t-qual">Qualités</h2>
+        <ul>
+          <li>Rigueur</li>
+          <li>Autonomie</li>
+          <li>Esprit d'équipe</li>
+          <li>Sens de la résolution de problèmes</li>
+          <li>Adaptabilité</li>
+          <li>Organisation</li>
+        </ul>
+      </section>
+    </aside>
+
+    <!-- ===== Colonne droite ===== -->
+    <main class="main">
+      <header class="head">
+        <h1>KAKOBA PAUL</h1>
+        <p class="role">DÉVELOPPEUR FULL STACK</p>
+        <p class="sub">Développement Web | UI/UX Design | Support Informatique</p>
+      </header>
+
+      <section class="block" aria-labelledby="t-profil">
+        <h2 id="t-profil">PROFIL PROFESSIONNEL</h2>
+        <p class="about">
+          Développeur Full Stack polyvalent, titulaire d'une Licence en Informatique de gestion et formé au développement web, avec une expérience en développement d'applications, conception UI/UX, support informatique et environnement opérationnel. Maîtrisant les technologies frontend et backend, la conception d'interfaces responsives, les API REST ainsi que la gestion des bases de données, il se distingue par sa rigueur, son adaptabilité et son orientation vers la résolution de problèmes. Il souhaite mettre ses compétences techniques et sa capacité d'adaptation au service de projets numériques et des objectifs d'une organisation.
+        </p>
+      </section>
+
+      <section class="block" aria-labelledby="t-exp">
+        <h2 id="t-exp">EXPÉRIENCES PROFESSIONNELLES</h2>
+        <div class="timeline">
+
+          <article class="job">
+            <time class="date" datetime="2026-09-01">Depuis<br>01 sept. 2026</time>
+            <div>
+              <h3>CHARGÉ DES ACQUISITIONS DE SITES</h3>
+              <p class="org">Africell RDC — Kolwezi | Temps plein</p>
+              <ul>
+                <li>Participation aux activités d'acquisition de sites pour Africell RDC à Kolwezi.</li>
+                <li>Gestion des démarches liées à l'identification et à l'acquisition des sites.</li>
+                <li>Collaboration avec les différents intervenants dans le processus d'acquisition.</li>
+                <li>Suivi des informations et éléments nécessaires aux opérations d'acquisition.</li>
+                <li>Négociation des conditions contractuelles avec les propriétaires, notamment le montant du loyer et les modalités de location.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <time class="date" datetime="2026-04">Avril 2026</time>
+            <div>
+              <h3>STAGIAIRE ASSISTANT UI/UX DESIGNER</h3>
+              <p class="org">Fantastik SARL en ligne</p>
+              <ul>
+                <li>Participation à la conception de l'application Kelasi School.</li>
+                <li>Réalisation de wireframes pour structurer les pages et les parcours utilisateurs.</li>
+                <li>Conception de maquettes graphiques sur Figma.</li>
+                <li>Collaboration à distance avec l'équipe durant les différentes étapes de conception.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <time class="date" datetime="2024-03">Mars 2024</time>
+            <div>
+              <h3>STAGIAIRE — SUPPORT INFORMATIQUE (HELPDESK)</h3>
+              <p class="org">SNCC</p>
+              <ul>
+                <li>Assistance aux utilisateurs.</li>
+                <li>Installation et configuration de logiciels.</li>
+                <li>Installation des systèmes d'exploitation (Windows, Ubuntu).</li>
+                <li>Diagnostic et résolution des problèmes matériels et logiciels.</li>
+                <li>Assistance technique aux utilisateurs.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="job">
+            <time class="date" datetime="2021-03">Mars 2021</time>
+            <div>
+              <h3>STAGIAIRE — MAINTENANCE INFORMATIQUE</h3>
+              <p class="org">SNCC</p>
+              <ul>
+                <li>Entretien et maintenance des ordinateurs.</li>
+                <li>Gestion du matériel informatique.</li>
+                <li>Intervention sur les équipements informatiques.</li>
+              </ul>
+            </div>
+          </article>
+
         </div>
-        
-    <div>
-        <p>© 2026 alexandrins Paul Kakoba Jr</p>
-</div>
-</footer>
-<script src="script.js"></script>
+      </section>
+
+      <section class="block" aria-labelledby="t-edu">
+        <h2 id="t-edu">FORMATIONS</h2>
+        <ul class="edu">
+          <li><b class="year">2025</b><span><strong>Développeur Full Stack</strong> — Kadea Academy</span></li>
+          <li><b class="year">2025</b><span><strong>Formation en IA Générative pour les PME</strong> — Fondation Mélanie, GIZ, Vodacom</span></li>
+          <li><b class="year">2024</b><span><strong>Licence en Informatique de gestion</strong> — ISC Lubumbashi</span></li>
+        </ul>
+      </section>
+
+      <section class="block" aria-labelledby="t-proj">
+        <h2 id="t-proj">PROJETS RÉALISÉS</h2>
+        <div class="projects">
+
+          <article class="project">
+            <h3>X-CLONE</h3>
+            <p class="desc">Application web inspirée du réseau social X.</p>
+            <ul class="tags"><li>AdonisJS</li><li>Edge</li><li>MySQL</li></ul>
+            <ul class="feat">
+              <li>Authentification et gestion des utilisateurs</li>
+              <li>Publication de contenus</li>
+              <li>Likes, retweets et abonnements</li>
+              <li>Gestion des hashtags et notifications</li>
+              <li>API REST</li>
+              <li>Gestion de la base de données MySQL</li>
+            </ul>
+          </article>
+
+          <article class="project">
+            <h3>IMMO L'SHI</h3>
+            <p class="desc">Plateforme web de publication et de gestion de biens immobiliers.</p>
+            <ul class="tags"><li>HTML/CSS</li><li>JavaScript</li><li>API</li><li>MySQL</li></ul>
+            <ul class="feat">
+              <li>Gestion des comptes propriétaires</li>
+              <li>Publication de biens avec images et informations détaillées</li>
+              <li>Recherche et consultation des biens</li>
+              <li>Gestion des données via une API et une base de données</li>
+            </ul>
+          </article>
+
+        </div>
+      </section>
+    </main>
+
+  </div>
 </body>
 </html>

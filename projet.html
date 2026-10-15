@@ -3,102 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mes Projets - Portfolio Alexandrins Paul Kakoba Jr</title>
+
+    <!-- SEO -->
+    <title>Mes projets | Alexandrins Paul Kakoba Jr</title>
+    <meta name="description" content="Projets d'Alexandrins Paul Kakoba Jr, développeur Full Stack Web : plateforme immobilière IMMO L'SHI, clone de X, intégrations front-end responsive et maquettes Figma.">
+
+    <!-- Partage réseaux sociaux (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mes projets | Alexandrins Paul Kakoba Jr">
+    <meta property="og:description" content="Applications Full Stack, intégrations responsive et maquettes UI.">
+
+    <!-- Polices Google : préconnexion aux bons domaines -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome (une seule version) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Ton CSS en dernier -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="preconnect" href="https://googleapis.com">
-  <link rel="preconnect" href="https://gstatic.com" crossorigin>
-  <link href="https://googleapis.com/css2?family=Playfair+Display:wght@700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="script.js" defer></script>
 </head>
 <body>
-<header class="header">
-    <div class="logo">
-        <a class="link" href="index.html">Alexandrins Paul Kakoba Jr</a>
-    </div>
-
-    <nav class="nav-bar">
-        <input type="checkbox" id="hamburger" name="hamburger">
-        <label for="hamburger" class="hamburger">
-            <img src="images/menu-hamburger.png" alt="icône menu hamburger">
-        </label>
-
-        <ul class="nav-list">
-            <li><a class="link" href="cv.html">CV</a></li>
-            <li><a class="link" href="projets.html">Projets</a></li>
-            <li><a class="link" href="contact.html">Contact</a></li>
-        </ul>
-        
-    </nav>    
-</header>
-
-<main>
-    <section class="projets">
-        <h1>Mes Projets</h1>
-
-        <div class="projet-card">
-            <img src="projet1.jpeg " alt="Capture du projet Docteur Norman">
-            <div class="projet-content">
-                <h2>Projet Docteur Norman</h2>
-                <p>
-                    Site vitrine réalisé en HTML et CSS dans le cadre de ma formation à la Kadea Academy.
-                    Ce projet m’a permis de renforcer mes compétences en structuration d’une interface web responsive, d’explorer les bonnes pratiques du design d’interface utilisateur (UI) et d’appliquer les principes fondamentaux d’un layout moderne et cohérent.
-                    L’objectif était de concevoir une page claire, élégante et adaptée à tous les supports, tout en respectant les standards du développement front-end. .
-                </p>
-                <p><strong>Technologies :</strong> HTML5, CSS3, GitHub</p>
-            </div>
+<!-- HEADER (structure d'origine conservée) -->
+    <header class="header">
+        <div class="logo">
+            <h2>Alexandrins Paul Kakoba Jr</h2>
         </div>
 
-        <div class="projet-card">
-            <img src="Capture d’écran du 2025-10-09 14-52-13.png" alt="Maquette Netflix réalisée sur Figma">
-            <div class="projet-content">
-                <h2>Maquette Netflix</h2>
-                <p>
-                    Création d’une maquette interactive inspirée de Netflix à l’aide de Figma.
-                      L’objectif était de concevoir une interface moderne tout en assurant une cohérence graphique solide, une hiérarchisation claire des contenus et une expérience utilisateur optimisée (UX/UI).
-                      Le travail a porté sur l’organisation des composants, la structuration visuelle, la navigation intuitive et la mise en avant des éléments clés afin d’offrir une maquette fidèle, fluide et ergonomique.
-                </p>
-                <p><strong>Technologies :</strong> Figma, GitHub</p>
-            </div>
-        </div>
+        <nav class="nav-bar" aria-label="Navigation principale">
+    
+            <label for="hamburger" class="hamburger">
+                <img src="images/menu-hamburger.png" alt="Ouvrir le menu" width="32" height="32">
+            </label>
 
-        <div class="projet-card">
-            <img src="Capture d’écran du 2025-11-21 11-54-48.png" alt="Projet Digital responsive">
-            <div class="projet-content">
-                <h2>Projet Sunnyside</h2>
-                <p>
-                    Création d’une maquette interactive inspirée du design Sunnyside.
-                    L’objectif était de reproduire une interface moderne et épurée, tout en mettant en valeur différents outils numériques tels que les ordinateurs, les tablettes et les téléphones portables.
-                    Le travail a consisté à intégrer une mise en page flexible et adaptable, grâce à l’utilisation de media queries permettant d’assurer une expérience totalement responsive sur tous les écrans.
-                    Cette maquette démontre la capacité à combiner design moderne, structuration cohérente et techniques avancées d’intégration front-end. .
-                </p> 
-                </p>
-                <p><strong>Technologies :</strong> HTML5, CSS3, Media Queries,Flexbox</p>
-                 </div>
-                </div>
+            <ul class="nav-list">
+                <li><a class="link" href="cv.html">CV</a></li>
+                <li><a class="link" href="projets.html">Projets</a></li>
+                <li><a class="link" href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- CONTENU PRINCIPAL -->
+    <main id="contenu">
+        <section class="projets" aria-labelledby="titre-projets">
+            <h1>Mes     Projets</h1>
+               
 
+            <!-- Remplace width/height par les dimensions réelles de chaque image -->
 
-                
-            
-                <div class="projet-card">
-                    <img src="Capture d'Ecran du projet clone-x 2026-07-23 14-11-32.png" alt ="Projet Front-end, Backend ">
-                    <div class ="projet-content">
-                 <h2>Projet Clone X</h2>
-                <p>
-                    Clone de Twitter développé en full stack pour pratiquer l’authentification, la gestion des publications et les interactions utilisateurs.
-                
-            
-                </p>
-                </p>
-                <p><strong>Technologies : </strong> Adonis.js ,Tailwind,Js,Html:5,my sql</p>
+            <!-- PROJET 1 : IMMO L'SHI -->
 
-            </div>
-             </div>
-            
-            
-            <div class="projet-card">
-                    <img src="Capture d’écran du 2026-09-17 13-33-57.png" alt ="Projet Front-end, Backend ">
+             <div class="projet-card">
+                    <img src="images/projets/immo-lshi.png" alt ="Projet Front-end, Backend ">
                     <div class ="projet-content">
                  <h2>Projet IMMO L'SHI</h2>
                 <p>
@@ -116,40 +76,135 @@
             </div>
             </div>
 
-    </p>
-    </section>
-</main>
-<footer>
+             <div class="projet-card">
+                    <img src="Capture d'Ecran du projet clone-x 2026-07-23 14-11-32.png" alt ="Projet Front-end, Backend ">
+                    <div class ="projet-content">
+                 <h2>Projet Clone X</h2>
+                <p>
+                    Clone de Twitter développé en full stack pour pratiquer l’authentification, la gestion des publications et les interactions utilisateurs.
+                
+            
+                </p>
+                </p>
+                <p><strong>Technologies : </strong> Adonis.js ,Tailwind,Js,Html:5,my sql</p>
 
-    <div>
-        <p><strong>Téléphone</strong><br>+243973216322</p>
-    </div>
+            </div>
+             </div>
 
-    <div>
-        <p><strong>Email</strong><br>kakobaalexandrinspaul@gmail.com</p>
-    </div>
+            
+            <!-- PROJET 3 : SUNNYSIDE -->
+            <div class="projet-card">
+            <img src="Capture d’écran du 2025-11-21 11-54-48.png" alt="Projet Digital responsive">
+            <div class="projet-content">
+                <h2>Projet Sunnyside</h2>
+                <p>
+                    Création d’une maquette interactive inspirée du design Sunnyside.
+                    L’objectif était de reproduire une interface moderne et épurée, tout en mettant en valeur différents outils numériques tels que les ordinateurs, les tablettes et les téléphones portables.
+                    Le travail a consisté à intégrer une mise en page flexible et adaptable, grâce à l’utilisation de media queries permettant d’assurer une expérience totalement responsive sur tous les écrans.
+                    Cette maquette démontre la capacité à combiner design moderne, structuration cohérente et techniques avancées d’intégration front-end. .
+                </p> 
+                </p>
+                <p><strong>Technologies :</strong> HTML5, CSS3, Media Queries,Flexbox</p>
+                 </div>
+                </div>
 
-    <div>
-        <p><strong>Suivez-moi</strong></p>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Twitter</a>
-        <a href="#">facebook</a>
-        <div class="social-links">
-            <a href="https://www.facebook.com/tonprofil" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/tonprofil" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/tonprofil" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://twitter.com/tonprofil" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://wa.me/243XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
-</div>
+
+            <!-- PROJET 4 : MAQUETTE NETFLIX -->
+            <div class="projet-card">
+            <img src="Capture d’écran du 2025-10-09 14-52-13.png" alt="Maquette Netflix réalisée sur Figma">
+            <div class="projet-content">
+                <h2>Maquette Netflix</h2>
+                <p>
+                    Création d’une maquette interactive inspirée de Netflix à l’aide de Figma.
+                      L’objectif était de concevoir une interface moderne tout en assurant une cohérence graphique solide, une hiérarchisation claire des contenus et une expérience utilisateur optimisée (UX/UI).
+                      Le travail a porté sur l’organisation des composants, la structuration visuelle, la navigation intuitive et la mise en avant des éléments clés afin d’offrir une maquette fidèle, fluide et ergonomique.
+                </p>
+                <p><strong>Technologies :</strong> Figma, GitHub</p>
+            </div>
         </div>
-        
-    </div>
-    <di>
-        <p>© 2026 alexandrins Paul Kakoba Jr</p>
-    </div>
 
-</footer>
-<script src="script.js"></script>
+            
+        <div class="projet-card">
+            <img src="projet1.jpeg " alt="Capture du projet Docteur Norman">
+            <div class="projet-content">
+                <h2>Projet Docteur Norman</h2>
+                <p>
+                    Site vitrine réalisé en HTML et CSS dans le cadre de ma formation à la Kadea Academy.
+                    Ce projet m’a permis de renforcer mes compétences en structuration d’une interface web responsive, d’explorer les bonnes pratiques du design d’interface utilisateur (UI) et d’appliquer les principes fondamentaux d’un layout moderne et cohérent.
+                    L’objectif était de concevoir une page claire, élégante et adaptée à tous les supports, tout en respectant les standards du développement front-end. .
+                </p>
+                <p><strong>Technologies :</strong> HTML5, CSS3, GitHub</p>
+            </div>
+        </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+                
+                <p>Développeur Full Stack Web</p>
+            </div>
+
+            <div class="footer-social">
+                <p><strong>Retrouvez-moi sur</strong></p>
+
+                <ul class="social-links">
+                    <li>
+                        <a href="https://www.linkedin.com/in/alexandrins-paul-kakoba-jr-7740b9365"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Profil LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/alexa_3867"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Profil Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/alexandre.kakoba"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Profil Facebook">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/243973216322"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Me contacter sur WhatsApp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <!-- GitHub : décommente avec ta vraie URL
+                    <li>
+                        <a href="https://github.com/TON-PSEUDO"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Profil GitHub">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    -->
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Alexandrins Paul Kakoba Jr. Tous droits réservés.</p>
+        </div>
+
+    </footer>
+
 </body>
 </html>

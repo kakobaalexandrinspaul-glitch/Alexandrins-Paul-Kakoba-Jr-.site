@@ -910,7 +910,7 @@ flex-direction: column;
 text-align: center;
 }
 
-```
+`
 .footer-social {
     text-align: center;
 }
@@ -918,3 +918,16 @@ text-align: center;
 .social-links {
     justify-content: center;
 }
+}
+
+
+
+
+
+
+
+
+
+
+
+
